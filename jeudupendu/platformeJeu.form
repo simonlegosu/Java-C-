@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JButton" name="jButton4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jButton1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jButton1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton15">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="O"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton22">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="K"/>
+      </Properties>
+    </Component>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="resetMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Menu"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="startGame">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="D&#xe9;buter le jeu"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startGameActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="infoMenu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xc0; propos..."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="infoMenuActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Accueil"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="quitGameMenu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Quitter le jeu"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quitGameMenuActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="motCache" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="scoreLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="debutPartie" alignment="1" min="-2" pref="91" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="nomJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="paintBonhomme" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="clavierPanel" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="paintBonhomme" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="nomJLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="scoreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="debutPartie" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="motCache" alignment="1" min="-2" pref="79" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="clavierPanel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="clavierPanel">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  <Component id="qButt" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="wButt" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                  <Component id="eButt" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="rButt" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="tButt" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="yButt" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="uButt" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="iButt" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="oButt" pref="43" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="pButt" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="zButt" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Component id="xButt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Component id="cButt" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="vButt" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="bButt" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="nButt" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="mButt" min="-2" pref="46" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="aButt" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="sButt" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="dButt" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="fButt" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="gButt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="hButt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="kButt" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lButt" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="qButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="wButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="eButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="tButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="rButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="yButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="uButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="iButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="oButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="pButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="aButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="sButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="dButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="fButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="gButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="jButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="hButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="kButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="lButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="zButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="xButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="cButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="vButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="bButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="nButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="mButt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="jButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="J"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="hButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="H"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="kButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="K"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="qButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Q"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[45, 19]"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="qButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="lButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="L"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="aButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="A"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="zButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Z"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="xButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="X"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="wButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="W"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="cButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="C"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="sButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="S"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="vButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="V"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="eButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="E"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="bButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="B"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="tButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="T"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="nButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="N"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="rButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="R"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="mButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="M"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="yButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Y"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="uButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="U"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="uButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="iButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="I"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="iButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="oButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="O"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="dButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="D"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="fButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="F"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="gButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="G"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gButtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="pButt">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="9" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="P"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pButtActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="messageJeu" alignment="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="messageJeu" pref="67" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="messageJeu">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Score :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="scoreLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="##"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="nomJLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="NomJoueur"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="motCache">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="36" style="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="*A*C*M*E*"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="debutPartie">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="G&#xe9;n&#xe9;rer"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="debutPartieActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JPanel" name="paintBonhomme">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="paintBonhomme = new javax.swing.JPanel(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g)&#xa;    {&#xa;        super.paintComponent(g);&#xa;        if (tentative &gt;= 6)&#xa;        {&#xa;            g.setColor(Color.red);&#xa;            g.drawLine (148,210,188,150);&#xa;        }&#xa;        if (tentative &gt;= 0)//debut&#xa;        {&#xa;            g.drawLine(75, 0, 75, 210);&#xa;            g.drawLine(75, 0, 175, 0);&#xa;            g.drawLine(175, 0, 188, 55);&#xa;        }&#xa;        if (tentative &gt;= 1)//tete&#xa;        {&#xa;            g.fillOval (162, 5, 50, 50); &#xa;        }&#xa;        if (tentative &gt;= 2)//corps&#xa;        {&#xa;            g.drawLine (188, 55, 188, 150);&#xa;        }&#xa;        if (tentative &gt;= 3)//bras gauche&#xa;        {&#xa;            g.drawLine (148,110,188,90);&#xa;        }&#xa;        if (tentative &gt;= 4)//bras droite&#xa;        {&#xa;            g.drawLine (188,90,228,110);&#xa;        }&#xa;        if (tentative &gt;= 5)&#xa;        {&#xa;            g.drawLine (188,150,228,210); &#xa;        }&#xa;&#xa;    }&#xa;};"/>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="platformeJeu_paintBonhomme"/>
+      </AuxValues>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="254" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+  </SubComponents>
+</Form>
