@@ -1,0 +1,41 @@
+﻿<Window x:Class="ATM_Simulator.Guichet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Guichet" Height="531" Width="574" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <GroupBox Header="Pavé Numérique" Height="410" HorizontalAlignment="Left" Margin="12,12,0,0" Name="numpad" VerticalAlignment="Top" Width="313">
+            <Grid Height="388">
+                <Button Content="1" Height="63" HorizontalAlignment="Left" Margin="18,18,0,0" Name="number1" VerticalAlignment="Top" Width="75" Click="number1_Click" />
+                <Button Content="2" Height="63" HorizontalAlignment="Left" Margin="113,18,0,0" Name="number2" VerticalAlignment="Top" Width="75" Click="number2_Click" />
+                <Button Content="3" Height="63" HorizontalAlignment="Left" Margin="208,18,0,0" Name="number3" VerticalAlignment="Top" Width="75" Click="number3_Click" />
+                <Button Content="4" Height="63" HorizontalAlignment="Left" Margin="18,101,0,0" Name="number4" VerticalAlignment="Top" Width="75" Click="number4_Click" />              
+                <Button Content="5" Height="63" HorizontalAlignment="Left" Margin="113,101,0,0" Name="number5" VerticalAlignment="Top" Width="75" Click="number5_Click" />                
+                <Button Content="6" Height="63" HorizontalAlignment="Left" Margin="208,101,0,0" Name="number6" VerticalAlignment="Top" Width="75" Click="number6_Click" />
+                <Button Content="7" Height="63" HorizontalAlignment="Left" Margin="18,184,0,0" Name="number7" VerticalAlignment="Top" Width="75" Click="number7_Click" />
+                <Button Content="8" Height="63" HorizontalAlignment="Left" Margin="113,184,0,0" Name="number8" VerticalAlignment="Top" Width="75" Click="number8_Click" />
+                <Button Content="9" Height="63" HorizontalAlignment="Left" Margin="208,184,0,0" Name="number9" VerticalAlignment="Top" Width="75" Click="number9_Click" />
+                <Button Content="0" Height="63" HorizontalAlignment="Left" Margin="113,263,0,0" Name="number0" VerticalAlignment="Top" Width="75" Click="number0_Click" />
+                <Button Content="." Height="63" HorizontalAlignment="Left" Margin="208,263,0,0" Name="numberPoint" VerticalAlignment="Top" Width="75" FontSize="18" Click="numberPoint_Click" />
+                <TextBox Height="33" HorizontalAlignment="Left" Margin="18,346,0,0" Name="saisitGuichet" VerticalAlignment="Top" Width="265" HorizontalContentAlignment="Left" FlowDirection="RightToLeft" FontSize="16" IsReadOnly="True" TextChanged="saisitGuichet_TextChanged" />
+                <Button Content="Clear" FontSize="14" Height="63" HorizontalAlignment="Left" Margin="18,263,0,0" Name="clear" VerticalAlignment="Top" Width="75" Click="clear_Click" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Transaction" Height="231" HorizontalAlignment="Left" Margin="340,12,0,0" Name="choixTransaction" VerticalAlignment="Top" Width="201">
+            <Grid Height="206" Width="187">
+                <RadioButton Content="Dépôt" Height="16" HorizontalAlignment="Left" Margin="14,25,0,0" Name="depotRadio" VerticalAlignment="Top" Checked="depotRadio_Checked" />
+                <RadioButton Content="Retrait" Height="16" HorizontalAlignment="Left" Margin="14,70,0,0" Name="retraitRadio" VerticalAlignment="Top" Checked="retraitRadio_Checked" />
+                <RadioButton Content="Transfert" Height="16" HorizontalAlignment="Left" Margin="14,115,0,0" Name="transfertRadio" VerticalAlignment="Top" Checked="transfertRadio_Checked" />
+                <RadioButton Content="Paiement de factures" Height="16" HorizontalAlignment="Left" Margin="14,160,0,0" Name="paiementRadio" VerticalAlignment="Top" Checked="paiementRadio_Checked" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Compte" Height="129" HorizontalAlignment="Left" Margin="340,252,0,0" Name="choixCompte" VerticalAlignment="Top" Width="201">
+            <Grid>
+                <RadioButton Content="Chèques" Height="16" HorizontalAlignment="Left" Margin="14,25,0,0" Name="chequeRadio" VerticalAlignment="Top" IsChecked="True" />
+                <RadioButton Content="Épargne" Height="16" HorizontalAlignment="Left" Margin="14,70,0,0" Name="epargneRadio" VerticalAlignment="Top" />
+            </Grid>
+        </GroupBox>
+        <Button Content="Soumettre" Height="23" HorizontalAlignment="Left" Margin="340,394,0,0" Name="submitGuichet" VerticalAlignment="Top" Width="95" Click="submitGuichet_Click" IsEnabled="False" />
+        <Button Content="Fermer" Height="23" HorizontalAlignment="Left" Margin="446,394,0,0" Name="quitterGuichet" VerticalAlignment="Top" Width="95" Click="quitterGuichet_Click" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="101,455,0,0" Name="preuve" Text="" VerticalAlignment="Top" Width="155" />
+    </Grid>
+</Window>

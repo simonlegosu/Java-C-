@@ -1,0 +1,12 @@
+F:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\bin\Debug\GuichetClasse.dll
+F:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\bin\Debug\GuichetClasse.pdb
+F:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\obj\Debug\GuichetClasse.dll
+F:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\obj\Debug\GuichetClasse.pdb
+D:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\bin\Debug\GuichetClasse.dll
+D:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\bin\Debug\GuichetClasse.pdb
+D:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\obj\Debug\GuichetClasse.dll
+D:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\obj\Debug\GuichetClasse.pdb
+G:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\bin\Debug\GuichetClasse.dll
+G:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\bin\Debug\GuichetClasse.pdb
+G:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\obj\Debug\GuichetClasse.dll
+G:\SimonBienvenue_PP1F_ATM\GuichetClasse\GuichetClasse\obj\Debug\GuichetClasse.pdb
