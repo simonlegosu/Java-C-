@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="tableLocations" EntityType="Model.Store.tableLocations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tablePaiements" EntityType="Model.Store.tablePaiements" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Paiements" Association="Model.Store.FK_Paiements">
+      <End Role="tableLocations" EntitySet="tableLocations" />
+      <End Role="tablePaiements" EntitySet="tablePaiements" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tableLocations">
+    <Key>
+      <PropertyRef Name="ID_Location" />
+    </Key>
+    <Property Name="DateDebut" Type="date" Nullable="false" />
+    <Property Name="DatePremierPaiement" Type="date" Nullable="false" />
+    <Property Name="MontantMensuel" Type="int" Nullable="false" />
+    <Property Name="NombrePaiementsMensuel" Type="int" Nullable="false" />
+    <Property Name="NIV" Type="char" Nullable="false" MaxLength="25" />
+    <Property Name="ID_Client" Type="int" Nullable="false" />
+    <Property Name="ID_Terme" Type="int" Nullable="false" />
+    <Property Name="ID_Location" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tablePaiements">
+    <Key>
+      <PropertyRef Name="ID_Paiement" />
+    </Key>
+    <Property Name="DatePaiement" Type="date" Nullable="false" />
+    <Property Name="Montant" Type="int" Nullable="false" />
+    <Property Name="ID_Location" Type="int" Nullable="false" />
+    <Property Name="ID_Paiement" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <Association Name="FK_Paiements">
+    <End Role="tableLocations" Type="Model.Store.tableLocations" Multiplicity="1" />
+    <End Role="tablePaiements" Type="Model.Store.tablePaiements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableLocations">
+        <PropertyRef Name="ID_Location" />
+      </Principal>
+      <Dependent Role="tablePaiements">
+        <PropertyRef Name="ID_Location" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

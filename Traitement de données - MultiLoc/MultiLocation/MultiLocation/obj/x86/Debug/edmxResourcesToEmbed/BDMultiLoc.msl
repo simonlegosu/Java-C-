@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="MultiLocEntities1">
+    <EntitySetMapping Name="tableLocations">
+      <EntityTypeMapping TypeName="Model.tableLocation">
+        <MappingFragment StoreEntitySet="tableLocations">
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="DatePremierPaiement" ColumnName="DatePremierPaiement" />
+          <ScalarProperty Name="MontantMensuel" ColumnName="MontantMensuel" />
+          <ScalarProperty Name="NombrePaiementsMensuel" ColumnName="NombrePaiementsMensuel" />
+          <ScalarProperty Name="NIV" ColumnName="NIV" />
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="ID_Terme" ColumnName="ID_Terme" />
+          <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tablePaiements">
+      <EntityTypeMapping TypeName="Model.tablePaiement">
+        <MappingFragment StoreEntitySet="tablePaiements">
+          <ScalarProperty Name="DatePaiement" ColumnName="DatePaiement" />
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+          <ScalarProperty Name="ID_Paiement" ColumnName="ID_Paiement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

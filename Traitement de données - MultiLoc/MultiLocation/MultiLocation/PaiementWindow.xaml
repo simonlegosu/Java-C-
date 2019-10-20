@@ -1,0 +1,43 @@
+﻿<Window x:Class="MultiLocation.PaiementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Paiements" Height="375" Width="652" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl Height="336" HorizontalAlignment="Left" Name="tabControl1" VerticalAlignment="Top" Width="630">
+            <TabItem Header="Annuler paiement" Name="tabItem1">
+                <Grid>
+                    <Label Content="Sélectionnez le paiement à annuler." Height="28" HorizontalAlignment="Left" Margin="12,8,0,0" Name="label1" VerticalAlignment="Top" Width="654" />
+                    <ListBox Height="185" HorizontalAlignment="Left" Margin="12,46,0,0" Name="listPaiement" VerticalAlignment="Top" Width="311" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" DisplayMemberPath="ID_Paiement" SelectionChanged="listPaiement_SelectionChanged" />
+                    <Button Content="Quitter" Height="23" HorizontalAlignment="Left" Margin="536,262,0,0" Name="quitPaiebutt" VerticalAlignment="Top" Width="75" Click="quitPaiebutt_Click" />
+                    <Button Content="Annuler Paiement" Height="23" HorizontalAlignment="Left" Margin="13,262,0,0" Name="deletePaiement" VerticalAlignment="Top" Width="117" Click="deletePaiement_Click" />
+                    <Label Content="Date du paiement :" Height="28" HorizontalAlignment="Left" Margin="329,52,0,0" Name="label4" VerticalAlignment="Top" />
+                    <Label Content="Montant :" Height="28" HorizontalAlignment="Left" Margin="329,102,0,0" Name="label5" VerticalAlignment="Top" />
+                    <Label Content="ID Location :" Height="28" HorizontalAlignment="Left" Margin="329,152,0,0" Name="label6" VerticalAlignment="Top" />
+                    <Label Content="ID Paiement :" Height="28" HorizontalAlignment="Left" Margin="329,202,0,0" Name="label7" VerticalAlignment="Top" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="446,57,0,0" Name="datePaietxtBlo"  VerticalAlignment="Top" Text="{Binding}"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="446,107,0,0" Name="montanttxtBlo"  VerticalAlignment="Top" Text="{Binding}"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="446,157,0,0" Name="idLoctxtBlo"  VerticalAlignment="Top" Text="{Binding}"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="446,208,0,0" Name="idPaietxtBlo"  VerticalAlignment="Top" Text="{Binding}"/>
+                    <Button Content="Actualiser" Height="23" HorizontalAlignment="Left" Margin="248,262,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Effectuer paiement" Name="tabitem2">
+                <Grid>
+                    <Label Content="Saisissez les informations du paiement à percevoir." Height="28" HorizontalAlignment="Left" Margin="12,8,0,0" Name="label11" VerticalAlignment="Top" Width="654" />
+                    <Label Content="Date du paiement :" Height="28" HorizontalAlignment="Left" Margin="12,52,0,0" Name="label14" VerticalAlignment="Top" />
+                    <Label Content="Montant :" Height="28" HorizontalAlignment="Left" Margin="12,102,0,0" Name="label15" VerticalAlignment="Top" />
+                    <Label Content="ID Location :" Height="28" HorizontalAlignment="Left" Margin="12,152,0,0" Name="label16" VerticalAlignment="Top" />
+                    <Label Content="ID Paiement :" Height="28" HorizontalAlignment="Left" Margin="12,202,0,0" Name="label17" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="129,57,0,0" Name="datepaietxtBox" VerticalAlignment="Top" Width="120" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="129,107,0,0" Name="montanttxtBox" VerticalAlignment="Top" Width="120" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="129,157,0,0" Name="idloctxtBox" VerticalAlignment="Top" Width="120" />
+                    <TextBox Height="23" Text="ID_Paiement Auto" HorizontalAlignment="Left" Margin="129,208,0,0" Name="idpaiementtxtBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+                    <Button Content="Quitter" Height="23" HorizontalAlignment="Left" Margin="536,262,0,0" Name="quitefbutt" VerticalAlignment="Top" Width="75" Click="quitefbutt_Click" />
+                    <Button Content="Effectuer paiement" Height="23" HorizontalAlignment="Left" Margin="13,262,0,0" Name="effectPaiebutt" VerticalAlignment="Top" Width="125" Click="effectPaiebutt_Click" />
+                    <Button Content="Clear" Height="23" HorizontalAlignment="Right" Margin="0,262,375,0" Name="clearEFbutt" VerticalAlignment="Top" Width="75" Click="clearEFbutt_Click" />
+                    <Label Content="$$$$" Height="176" HorizontalAlignment="Left" Margin="350,57,0,0" Name="label2" VerticalAlignment="Top" Width="220" FontSize="100" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

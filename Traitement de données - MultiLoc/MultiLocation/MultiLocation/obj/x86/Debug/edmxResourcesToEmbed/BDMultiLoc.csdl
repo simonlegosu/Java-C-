@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="MultiLocEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tableLocations" EntityType="Model.tableLocation" />
+    <EntitySet Name="tablePaiements" EntityType="Model.tablePaiement" />
+    <AssociationSet Name="FK_Paiements" Association="Model.FK_Paiements">
+      <End Role="tableLocations" EntitySet="tableLocations" />
+      <End Role="tablePaiements" EntitySet="tablePaiements" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tableLocation">
+    <Key>
+      <PropertyRef Name="ID_Location" />
+    </Key>
+    <Property Name="DateDebut" Type="DateTime" Nullable="false" />
+    <Property Name="DatePremierPaiement" Type="DateTime" Nullable="false" />
+    <Property Name="MontantMensuel" Type="Int32" Nullable="false" />
+    <Property Name="NombrePaiementsMensuel" Type="Int32" Nullable="false" />
+    <Property Name="NIV" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="true" />
+    <Property Name="ID_Client" Type="Int32" Nullable="false" />
+    <Property Name="ID_Terme" Type="Int32" Nullable="false" />
+    <Property Name="ID_Location" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tablePaiements" Relationship="Model.FK_Paiements" FromRole="tableLocations" ToRole="tablePaiements" />
+  </EntityType>
+  <EntityType Name="tablePaiement">
+    <Key>
+      <PropertyRef Name="ID_Paiement" />
+    </Key>
+    <Property Name="DatePaiement" Type="DateTime" Nullable="false" />
+    <Property Name="Montant" Type="Int32" Nullable="false" />
+    <Property Name="ID_Location" Type="Int32" Nullable="false" />
+    <Property Name="ID_Paiement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tableLocation" Relationship="Model.FK_Paiements" FromRole="tablePaiements" ToRole="tableLocations" />
+  </EntityType>
+  <Association Name="FK_Paiements">
+    <End Role="tableLocations" Type="Model.tableLocation" Multiplicity="1" />
+    <End Role="tablePaiements" Type="Model.tablePaiement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableLocations">
+        <PropertyRef Name="ID_Location" />
+      </Principal>
+      <Dependent Role="tablePaiements">
+        <PropertyRef Name="ID_Location" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

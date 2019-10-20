@@ -1,0 +1,63 @@
+﻿<Window x:Class="MultiLocation.LocationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Éditeur de location"  Height="375" Width="400" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl Height="312" HorizontalAlignment="Left" Margin="12,12,0,0" Name="tabControl1" VerticalAlignment="Top" Width="354">
+            <TabItem Header="Ajouter" Name="ajoutTab">
+                <Grid>
+                    <Label Content="Date début" Height="28" HorizontalAlignment="Left" Margin="6,5,0,0" Name="label1" VerticalAlignment="Top" />
+                    <Label Content="Date premier paiement" Height="28" HorizontalAlignment="Left" Margin="6,35,0,0" Name="label2" VerticalAlignment="Top" />
+                    <Label Content="Montant mensuel" Height="28" HorizontalAlignment="Left" Margin="6,65,0,0" Name="label3" VerticalAlignment="Top" />
+                    <Label Content="Nombre de mensualité" Height="28" HorizontalAlignment="Left" Margin="6,95,0,0" Name="label41" VerticalAlignment="Top" />
+                    <Label Content="NIV du véhicule" Height="28" HorizontalAlignment="Left" Margin="6,125,0,0" Name="label4" VerticalAlignment="Top" />
+                    <Label Content="ID Client" Height="28" HorizontalAlignment="Left" Margin="6,155,0,0" Name="label5" VerticalAlignment="Top" />
+                    <Label Content="Terme de location" Height="28" HorizontalAlignment="Left" Margin="6,185,0,0" Name="label6" VerticalAlignment="Top" />
+                    <Label Content="ID Location" Height="28" HorizontalAlignment="Left" Margin="6,215,0,0" Name="label7" VerticalAlignment="Top" />
+                    
+                    
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,5,0,0" Name="datedebutAjouttxtBox" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,35,0,0" Name="datefirstAjouttxtBox" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,65,0,0" Name="montmensAjouttxtBox" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,95,0,0" Name="nbmensAjouttxtB" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,125,0,0" Name="nivAjouttxtBox" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,155,0,0" Name="idclientAjouttxtBox" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,185,0,0" Name="termeAjouttxtBox" VerticalAlignment="Top" Width="185" />
+                    
+                    <TextBox Height="23" Text="ID Automatique"  HorizontalAlignment="Right" Margin="125,215,0,0" Name="idlocAjouttxtBox" VerticalAlignment="Top" Width="185" IsReadOnly="True"/>
+                    <Button Content="Clear" Height="23" HorizontalAlignment="Left" Margin="63,255,0,0" Name="clearAjoutButt" VerticalAlignment="Top" Width="75" Click="clearAjoutButt_Click" />
+                    <Button Content="Sauvegarde" Height="23" HorizontalAlignment="Left" Margin="163,255,0,0" Name="saveAjoutButt" VerticalAlignment="Top" Width="75" Click="saveAjoutButt_Click" />
+                    <Button Content="Quitter" Height="23" HorizontalAlignment="Left" Margin="261,255,0,0" Name="quititAjoutButt" VerticalAlignment="Top" Width="81" Click="quititButt_Click" />
+                    
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Modifier" Name="modiTab">
+                <Grid>
+                    <Label Content="Date début" Height="28" HorizontalAlignment="Left" Margin="6,5,0,0" Name="label11" VerticalAlignment="Top" />
+                    <Label Content="Date premier paiement" Height="28" HorizontalAlignment="Left" Margin="6,35,0,0" Name="label12" VerticalAlignment="Top" />
+                    <Label Content="Montant mensuel" Height="28" HorizontalAlignment="Left" Margin="6,65,0,0" Name="label13" VerticalAlignment="Top" />
+                    <Label Content="Nombre de mensualité" Height="28" HorizontalAlignment="Left" Margin="6,95,0,0" Name="label114" VerticalAlignment="Top" />
+                    <Label Content="NIV du véhicule" Height="28" HorizontalAlignment="Left" Margin="6,125,0,0" Name="label14" VerticalAlignment="Top" />
+                    <Label Content="ID Client" Height="28" HorizontalAlignment="Left" Margin="6,155,0,0" Name="label15" VerticalAlignment="Top" />
+                    <Label Content="Terme de location" Height="28" HorizontalAlignment="Left" Margin="6,185,0,0" Name="label16" VerticalAlignment="Top" />
+                    <Label Content="ID Location" Height="28" HorizontalAlignment="Left" Margin="6,215,0,0" Name="label17" VerticalAlignment="Top" />
+                    
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,5,0,0" Name="datedebutModtextB" VerticalAlignment="Top" Width="185"  />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,35,0,0" Name="datefirstModtextB" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,65,0,0" Name="montmensModtextB" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,95,0,0" Name="nbmensModtextB" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,125,0,0" Name="nivModtextB" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,155,0,0" Name="idCliModtextB" VerticalAlignment="Top" Width="185" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="125,185,0,0" Name="termeModtextB" VerticalAlignment="Top" Width="185" />
+                    <ComboBox Height="23" HorizontalAlignment="Right" Margin="125,215,0,0" Name="idlocCombox" VerticalAlignment="Top" Width="185" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" DisplayMemberPath="ID_Location" SelectionChanged="idlocCombox_SelectionChanged" />
+                    
+                    <Button Content="Sauvegarde" Height="23" HorizontalAlignment="Left" Margin="163,255,0,0" Name="saveModButt" VerticalAlignment="Top" Width="75" Click="saveModButt_Click" />
+                    <Button Content="Quitter" Height="23" HorizontalAlignment="Left" Margin="261,255,0,0" Name="quititModButt" VerticalAlignment="Top" Width="81" Click="quititButt_Click" />
+                    
+                </Grid>
+                    
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

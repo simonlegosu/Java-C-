@@ -1,0 +1,831 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MultiLocModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="MultiLocModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="MultiLocModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tableAudits" EntityType="MultiLocModel.Store.tableAudits" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tableCategories" EntityType="MultiLocModel.Store.tableCategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tableClients" EntityType="MultiLocModel.Store.tableClients" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tableCouleurs" EntityType="MultiLocModel.Store.tableCouleurs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tableLocations" EntityType="MultiLocModel.Store.tableLocations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tableModeles" EntityType="MultiLocModel.Store.tableModeles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tablePaiements" EntityType="MultiLocModel.Store.tablePaiements" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tableTermes_Location" EntityType="MultiLocModel.Store.tableTermes_Location" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tableVehicules" EntityType="MultiLocModel.Store.tableVehicules" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Etape3" EntityType="MultiLocModel.Store.Etape3" store:Type="Views" store:Schema="dbo" store:Name="Etape3">
+            <DefiningQuery>SELECT 
+      [Etape3].[Nom Complet] AS [Nom Complet], 
+      [Etape3].[NumeroTelephone] AS [NumeroTelephone], 
+      [Etape3].[NIV] AS [NIV], 
+      [Etape3].[ID_Couleur] AS [ID_Couleur], 
+      [Etape3].[Annee] AS [Annee], 
+      [Etape3].[DatePaiement] AS [DatePaiement], 
+      [Etape3].[Montant] AS [Montant]
+      FROM [dbo].[Etape3] AS [Etape3]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Categories1" Association="MultiLocModel.Store.FK_Categories1">
+            <End Role="tableCategories" EntitySet="tableCategories" />
+            <End Role="tableVehicules" EntitySet="tableVehicules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients1" Association="MultiLocModel.Store.FK_Clients1">
+            <End Role="tableClients" EntitySet="tableClients" />
+            <End Role="tableLocations" EntitySet="tableLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Couleurs1" Association="MultiLocModel.Store.FK_Couleurs1">
+            <End Role="tableCouleurs" EntitySet="tableCouleurs" />
+            <End Role="tableVehicules" EntitySet="tableVehicules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locations2" Association="MultiLocModel.Store.FK_Locations2">
+            <End Role="tableLocations" EntitySet="tableLocations" />
+            <End Role="tableAudits" EntitySet="tableAudits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modeles1" Association="MultiLocModel.Store.FK_Modeles1">
+            <End Role="tableModeles" EntitySet="tableModeles" />
+            <End Role="tableVehicules" EntitySet="tableVehicules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paiements" Association="MultiLocModel.Store.FK_Paiements">
+            <End Role="tableLocations" EntitySet="tableLocations" />
+            <End Role="tablePaiements" EntitySet="tablePaiements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Termes_Location1" Association="MultiLocModel.Store.FK_Termes_Location1">
+            <End Role="tableTermes_Location" EntitySet="tableTermes_Location" />
+            <End Role="tableLocations" EntitySet="tableLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicules1" Association="MultiLocModel.Store.FK_Vehicules1">
+            <End Role="tableVehicules" EntitySet="tableVehicules" />
+            <End Role="tableLocations" EntitySet="tableLocations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tableAudits">
+          <Key>
+            <PropertyRef Name="ID_Audit" />
+          </Key>
+          <Property Name="DateChangement" Type="date" Nullable="false" />
+          <Property Name="Changer" Type="bit" Nullable="false" />
+          <Property Name="AncienneValeur" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="NouvelleValeur" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="ChampsChanger" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="ID_Location" Type="int" Nullable="false" />
+          <Property Name="ID_Audit" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tableCategories">
+          <Key>
+            <PropertyRef Name="ID_Categorie" />
+          </Key>
+          <Property Name="ID_Categorie" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Categorie" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tableClients">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+          </Key>
+          <Property Name="Prenom" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Nom" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="Adresse" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="Ville" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Province" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CodePostal" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="NumeroTelephone" Type="char" Nullable="false" MaxLength="15" />
+          <Property Name="ID_Client" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tableCouleurs">
+          <Key>
+            <PropertyRef Name="ID_Couleur" />
+          </Key>
+          <Property Name="ID_Couleur" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Couleur" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tableLocations">
+          <Key>
+            <PropertyRef Name="ID_Location" />
+          </Key>
+          <Property Name="DateDebut" Type="date" Nullable="false" />
+          <Property Name="DatePremierPaiement" Type="date" Nullable="false" />
+          <Property Name="MontantMensuel" Type="int" Nullable="false" />
+          <Property Name="NombrePaiementsMensuel" Type="int" Nullable="false" />
+          <Property Name="NIV" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="ID_Client" Type="int" Nullable="false" />
+          <Property Name="ID_Terme" Type="int" Nullable="false" />
+          <Property Name="ID_Location" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tableModeles">
+          <Key>
+            <PropertyRef Name="ID_Modele" />
+          </Key>
+          <Property Name="ID_Modele" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ModeleDescription" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tablePaiements">
+          <Key>
+            <PropertyRef Name="ID_Paiement" />
+          </Key>
+          <Property Name="DatePaiement" Type="date" Nullable="false" />
+          <Property Name="Montant" Type="int" Nullable="false" />
+          <Property Name="ID_Location" Type="int" Nullable="false" />
+          <Property Name="ID_Paiement" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tableTermes_Location">
+          <Key>
+            <PropertyRef Name="ID_Terme" />
+          </Key>
+          <Property Name="NombreAnnees" Type="smallint" Nullable="false" />
+          <Property Name="KM_Maximum" Type="int" Nullable="false" />
+          <Property Name="Surprime_KM" Type="float" Nullable="false" />
+          <Property Name="ID_Terme" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tableVehicules">
+          <Key>
+            <PropertyRef Name="NIV" />
+          </Key>
+          <Property Name="NIV" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="ID_Modele" Type="int" Nullable="false" />
+          <Property Name="ID_Categorie" Type="int" Nullable="false" />
+          <Property Name="ID_Couleur" Type="int" Nullable="false" />
+          <Property Name="Annee" Type="char" Nullable="false" MaxLength="4" />
+          <Property Name="Odometre" Type="int" Nullable="false" />
+          <Property Name="Louer" Type="bit" />
+          <Property Name="Valeur" Type="int" Nullable="false" />
+          <Property Name="Automatique" Type="bit" />
+          <Property Name="AirClim" Type="bit" />
+          <Property Name="AntiDemarreur" Type="bit" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+      Avertissement 6002: La table/vue « ML-086163.dbo.Etape3 » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+      -->
+        <EntityType Name="Etape3">
+          <Key>
+            <PropertyRef Name="Nom Complet" />
+            <PropertyRef Name="NumeroTelephone" />
+            <PropertyRef Name="NIV" />
+            <PropertyRef Name="ID_Couleur" />
+            <PropertyRef Name="Annee" />
+            <PropertyRef Name="DatePaiement" />
+            <PropertyRef Name="Montant" />
+          </Key>
+          <Property Name="Nom Complet" Type="varchar" Nullable="false" MaxLength="62" />
+          <Property Name="NumeroTelephone" Type="char" Nullable="false" MaxLength="15" />
+          <Property Name="NIV" Type="char" Nullable="false" MaxLength="25" />
+          <Property Name="ID_Couleur" Type="int" Nullable="false" />
+          <Property Name="Annee" Type="char" Nullable="false" MaxLength="4" />
+          <Property Name="DatePaiement" Type="smalldatetime" Nullable="false" />
+          <Property Name="Montant" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Categories1">
+          <End Role="tableCategories" Type="MultiLocModel.Store.tableCategories" Multiplicity="1" />
+          <End Role="tableVehicules" Type="MultiLocModel.Store.tableVehicules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableCategories">
+              <PropertyRef Name="ID_Categorie" />
+            </Principal>
+            <Dependent Role="tableVehicules">
+              <PropertyRef Name="ID_Categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients1">
+          <End Role="tableClients" Type="MultiLocModel.Store.tableClients" Multiplicity="1" />
+          <End Role="tableLocations" Type="MultiLocModel.Store.tableLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableClients">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="tableLocations">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Couleurs1">
+          <End Role="tableCouleurs" Type="MultiLocModel.Store.tableCouleurs" Multiplicity="1" />
+          <End Role="tableVehicules" Type="MultiLocModel.Store.tableVehicules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableCouleurs">
+              <PropertyRef Name="ID_Couleur" />
+            </Principal>
+            <Dependent Role="tableVehicules">
+              <PropertyRef Name="ID_Couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Locations2">
+          <End Role="tableLocations" Type="MultiLocModel.Store.tableLocations" Multiplicity="1" />
+          <End Role="tableAudits" Type="MultiLocModel.Store.tableAudits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableLocations">
+              <PropertyRef Name="ID_Location" />
+            </Principal>
+            <Dependent Role="tableAudits">
+              <PropertyRef Name="ID_Location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modeles1">
+          <End Role="tableModeles" Type="MultiLocModel.Store.tableModeles" Multiplicity="1" />
+          <End Role="tableVehicules" Type="MultiLocModel.Store.tableVehicules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableModeles">
+              <PropertyRef Name="ID_Modele" />
+            </Principal>
+            <Dependent Role="tableVehicules">
+              <PropertyRef Name="ID_Modele" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paiements">
+          <End Role="tableLocations" Type="MultiLocModel.Store.tableLocations" Multiplicity="1" />
+          <End Role="tablePaiements" Type="MultiLocModel.Store.tablePaiements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableLocations">
+              <PropertyRef Name="ID_Location" />
+            </Principal>
+            <Dependent Role="tablePaiements">
+              <PropertyRef Name="ID_Location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Termes_Location1">
+          <End Role="tableTermes_Location" Type="MultiLocModel.Store.tableTermes_Location" Multiplicity="1" />
+          <End Role="tableLocations" Type="MultiLocModel.Store.tableLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableTermes_Location">
+              <PropertyRef Name="ID_Terme" />
+            </Principal>
+            <Dependent Role="tableLocations">
+              <PropertyRef Name="ID_Terme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicules1">
+          <End Role="tableVehicules" Type="MultiLocModel.Store.tableVehicules" Multiplicity="1" />
+          <End Role="tableLocations" Type="MultiLocModel.Store.tableLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableVehicules">
+              <PropertyRef Name="NIV" />
+            </Principal>
+            <Dependent Role="tableLocations">
+              <PropertyRef Name="NIV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDClientDelete" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="InsererLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NewDateDebut" Type="smalldatetime" Mode="In" />
+          <Parameter Name="NewDatePaiement" Type="smalldatetime" Mode="In" />
+          <Parameter Name="montantMensuel" Type="int" Mode="In" />
+          <Parameter Name="nombrePaiementsMois" Type="int" Mode="In" />
+          <Parameter Name="NIVehicule" Type="char" Mode="In" />
+          <Parameter Name="ID_Cli" Type="int" Mode="In" />
+          <Parameter Name="ID_Term" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsererPaiement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DatePaiement" Type="smalldatetime" Mode="In" />
+          <Parameter Name="Montant" Type="int" Mode="In" />
+          <Parameter Name="ID_Location" Type="int" Mode="In" />
+        </Function>
+        <Function Name="MAJLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MontantMensuel" Type="int" Mode="In" />
+          <Parameter Name="NombrePaiementsMensuel" Type="int" Mode="In" />
+          <Parameter Name="NIV" Type="char" Mode="In" />
+          <Parameter Name="ID_Terme" Type="int" Mode="In" />
+          <Parameter Name="ID_LocationUPDATE" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDLocationRecherche" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MultiLocModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="MultiLocEntities11" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tableLocations" EntityType="MultiLocModel.tableLocation" />
+          <EntitySet Name="tablePaiements" EntityType="MultiLocModel.tablePaiement" />
+          <AssociationSet Name="FK_Paiements" Association="MultiLocModel.FK_Paiements">
+            <End Role="tableLocations" EntitySet="tableLocations" />
+            <End Role="tablePaiements" EntitySet="tablePaiements" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="MultiLocModel.sysdiagrams" />
+          <EntitySet Name="tableAudits" EntityType="MultiLocModel.tableAudits" />
+          <EntitySet Name="tableCategories" EntityType="MultiLocModel.tableCategories" />
+          <EntitySet Name="tableClients" EntityType="MultiLocModel.tableClients" />
+          <EntitySet Name="tableCouleurs" EntityType="MultiLocModel.tableCouleurs" />
+          <EntitySet Name="tableModeles" EntityType="MultiLocModel.tableModeles" />
+          <EntitySet Name="tableTermes_Location" EntityType="MultiLocModel.tableTermes_Location" />
+          <EntitySet Name="tableVehicules" EntityType="MultiLocModel.tableVehicules" />
+          <EntitySet Name="Etape3" EntityType="MultiLocModel.Etape3" />
+          <AssociationSet Name="FK_Locations2" Association="MultiLocModel.FK_Locations2">
+            <End Role="tableLocation" EntitySet="tableLocations" />
+            <End Role="tableAudits" EntitySet="tableAudits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories1" Association="MultiLocModel.FK_Categories1">
+            <End Role="tableCategories" EntitySet="tableCategories" />
+            <End Role="tableVehicules" EntitySet="tableVehicules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients1" Association="MultiLocModel.FK_Clients1">
+            <End Role="tableClients" EntitySet="tableClients" />
+            <End Role="tableLocation" EntitySet="tableLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Couleurs1" Association="MultiLocModel.FK_Couleurs1">
+            <End Role="tableCouleurs" EntitySet="tableCouleurs" />
+            <End Role="tableVehicules" EntitySet="tableVehicules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Termes_Location1" Association="MultiLocModel.FK_Termes_Location1">
+            <End Role="tableTermes_Location" EntitySet="tableTermes_Location" />
+            <End Role="tableLocation" EntitySet="tableLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicules1" Association="MultiLocModel.FK_Vehicules1">
+            <End Role="tableVehicules" EntitySet="tableVehicules" />
+            <End Role="tableLocation" EntitySet="tableLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modeles1" Association="MultiLocModel.FK_Modeles1">
+            <End Role="tableModeles" EntitySet="tableModeles" />
+            <End Role="tableVehicules" EntitySet="tableVehicules" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tableLocation">
+          <Key>
+            <PropertyRef Name="ID_Location" />
+          </Key>
+          <Property Name="DateDebut" Type="DateTime" Nullable="false" />
+          <Property Name="DatePremierPaiement" Type="DateTime" Nullable="false" />
+          <Property Name="MontantMensuel" Type="Int32" Nullable="false" />
+          <Property Name="NombrePaiementsMensuel" Type="Int32" Nullable="false" />
+          <Property Name="NIV" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="ID_Client" Type="Int32" Nullable="false" />
+          <Property Name="ID_Terme" Type="Int32" Nullable="false" />
+          <Property Name="ID_Location" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="tablePaiements" Relationship="MultiLocModel.FK_Paiements" FromRole="tableLocations" ToRole="tablePaiements" />
+          <NavigationProperty Name="tableAudits" Relationship="MultiLocModel.FK_Locations2" FromRole="tableLocation" ToRole="tableAudits" />
+          <NavigationProperty Name="tableClients" Relationship="MultiLocModel.FK_Clients1" FromRole="tableLocation" ToRole="tableClients" />
+          <NavigationProperty Name="tableTermes_Location" Relationship="MultiLocModel.FK_Termes_Location1" FromRole="tableLocation" ToRole="tableTermes_Location" />
+          <NavigationProperty Name="tableVehicules" Relationship="MultiLocModel.FK_Vehicules1" FromRole="tableLocation" ToRole="tableVehicules" />
+        </EntityType>
+        <EntityType Name="tablePaiement">
+          <Key>
+            <PropertyRef Name="ID_Paiement" />
+          </Key>
+          <Property Name="DatePaiement" Type="DateTime" Nullable="false" />
+          <Property Name="Montant" Type="Int32" Nullable="false" />
+          <Property Name="ID_Location" Type="Int32" Nullable="false" />
+          <Property Name="ID_Paiement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="tableLocation" Relationship="MultiLocModel.FK_Paiements" FromRole="tablePaiements" ToRole="tableLocations" />
+        </EntityType>
+        <Association Name="FK_Paiements">
+          <End Role="tableLocations" Type="MultiLocModel.tableLocation" Multiplicity="1" />
+          <End Role="tablePaiements" Type="MultiLocModel.tablePaiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableLocations">
+              <PropertyRef Name="ID_Location" />
+            </Principal>
+            <Dependent Role="tablePaiements">
+              <PropertyRef Name="ID_Location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tableAudits">
+          <Key>
+            <PropertyRef Name="ID_Audit" />
+          </Key>
+          <Property Type="DateTime" Name="DateChangement" Nullable="false" />
+          <Property Type="Boolean" Name="Changer" Nullable="false" />
+          <Property Type="String" Name="AncienneValeur" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NouvelleValeur" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ChampsChanger" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_Location" Nullable="false" />
+          <Property Type="Int32" Name="ID_Audit" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="tableLocations" Relationship="MultiLocModel.FK_Locations2" FromRole="tableAudits" ToRole="tableLocation" />
+        </EntityType>
+        <EntityType Name="tableCategories">
+          <Key>
+            <PropertyRef Name="ID_Categorie" />
+          </Key>
+          <Property Type="Int32" Name="ID_Categorie" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Categorie" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tableVehicules" Relationship="MultiLocModel.FK_Categories1" FromRole="tableCategories" ToRole="tableVehicules" />
+        </EntityType>
+        <EntityType Name="tableClients">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+          </Key>
+          <Property Type="String" Name="Prenom" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Adresse" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ville" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Province" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodePostal" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumeroTelephone" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="ID_Client" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="tableLocations" Relationship="MultiLocModel.FK_Clients1" FromRole="tableClients" ToRole="tableLocation" />
+        </EntityType>
+        <EntityType Name="tableCouleurs">
+          <Key>
+            <PropertyRef Name="ID_Couleur" />
+          </Key>
+          <Property Type="Int32" Name="ID_Couleur" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Couleur" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tableVehicules" Relationship="MultiLocModel.FK_Couleurs1" FromRole="tableCouleurs" ToRole="tableVehicules" />
+        </EntityType>
+        <EntityType Name="tableModeles">
+          <Key>
+            <PropertyRef Name="ID_Modele" />
+          </Key>
+          <Property Type="Int32" Name="ID_Modele" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ModeleDescription" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tableVehicules" Relationship="MultiLocModel.FK_Modeles1" FromRole="tableModeles" ToRole="tableVehicules" />
+        </EntityType>
+        <EntityType Name="tableTermes_Location">
+          <Key>
+            <PropertyRef Name="ID_Terme" />
+          </Key>
+          <Property Type="Int16" Name="NombreAnnees" Nullable="false" />
+          <Property Type="Int32" Name="KM_Maximum" Nullable="false" />
+          <Property Type="Double" Name="Surprime_KM" Nullable="false" />
+          <Property Type="Int32" Name="ID_Terme" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="tableLocations" Relationship="MultiLocModel.FK_Termes_Location1" FromRole="tableTermes_Location" ToRole="tableLocation" />
+        </EntityType>
+        <EntityType Name="tableVehicules">
+          <Key>
+            <PropertyRef Name="NIV" />
+          </Key>
+          <Property Type="String" Name="NIV" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_Modele" Nullable="false" />
+          <Property Type="Int32" Name="ID_Categorie" Nullable="false" />
+          <Property Type="Int32" Name="ID_Couleur" Nullable="false" />
+          <Property Type="String" Name="Annee" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="Odometre" Nullable="false" />
+          <Property Type="Boolean" Name="Louer" />
+          <Property Type="Int32" Name="Valeur" Nullable="false" />
+          <Property Type="Boolean" Name="Automatique" />
+          <Property Type="Boolean" Name="AirClim" />
+          <Property Type="Boolean" Name="AntiDemarreur" />
+          <NavigationProperty Name="tableCategories" Relationship="MultiLocModel.FK_Categories1" FromRole="tableVehicules" ToRole="tableCategories" />
+          <NavigationProperty Name="tableCouleurs" Relationship="MultiLocModel.FK_Couleurs1" FromRole="tableVehicules" ToRole="tableCouleurs" />
+          <NavigationProperty Name="tableLocations" Relationship="MultiLocModel.FK_Vehicules1" FromRole="tableVehicules" ToRole="tableLocation" />
+          <NavigationProperty Name="tableModeles" Relationship="MultiLocModel.FK_Modeles1" FromRole="tableVehicules" ToRole="tableModeles" />
+        </EntityType>
+        <EntityType Name="Etape3">
+          <Key>
+            <PropertyRef Name="Nom_Complet" />
+            <PropertyRef Name="NumeroTelephone" />
+            <PropertyRef Name="NIV" />
+            <PropertyRef Name="ID_Couleur" />
+            <PropertyRef Name="Annee" />
+            <PropertyRef Name="DatePaiement" />
+            <PropertyRef Name="Montant" />
+          </Key>
+          <Property Type="String" Name="Nom_Complet" Nullable="false" MaxLength="62" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumeroTelephone" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="NIV" Nullable="false" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="ID_Couleur" Nullable="false" />
+          <Property Type="String" Name="Annee" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="DatePaiement" Nullable="false" />
+          <Property Type="Int32" Name="Montant" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Locations2">
+          <End Type="MultiLocModel.tableLocation" Role="tableLocation" Multiplicity="1" />
+          <End Type="MultiLocModel.tableAudits" Role="tableAudits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableLocation">
+              <PropertyRef Name="ID_Location" />
+            </Principal>
+            <Dependent Role="tableAudits">
+              <PropertyRef Name="ID_Location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories1">
+          <End Type="MultiLocModel.tableCategories" Role="tableCategories" Multiplicity="1" />
+          <End Type="MultiLocModel.tableVehicules" Role="tableVehicules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableCategories">
+              <PropertyRef Name="ID_Categorie" />
+            </Principal>
+            <Dependent Role="tableVehicules">
+              <PropertyRef Name="ID_Categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients1">
+          <End Type="MultiLocModel.tableClients" Role="tableClients" Multiplicity="1" />
+          <End Type="MultiLocModel.tableLocation" Role="tableLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableClients">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="tableLocation">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Couleurs1">
+          <End Type="MultiLocModel.tableCouleurs" Role="tableCouleurs" Multiplicity="1" />
+          <End Type="MultiLocModel.tableVehicules" Role="tableVehicules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableCouleurs">
+              <PropertyRef Name="ID_Couleur" />
+            </Principal>
+            <Dependent Role="tableVehicules">
+              <PropertyRef Name="ID_Couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Termes_Location1">
+          <End Type="MultiLocModel.tableTermes_Location" Role="tableTermes_Location" Multiplicity="1" />
+          <End Type="MultiLocModel.tableLocation" Role="tableLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableTermes_Location">
+              <PropertyRef Name="ID_Terme" />
+            </Principal>
+            <Dependent Role="tableLocation">
+              <PropertyRef Name="ID_Terme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicules1">
+          <End Type="MultiLocModel.tableVehicules" Role="tableVehicules" Multiplicity="1" />
+          <End Type="MultiLocModel.tableLocation" Role="tableLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableVehicules">
+              <PropertyRef Name="NIV" />
+            </Principal>
+            <Dependent Role="tableLocation">
+              <PropertyRef Name="NIV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modeles1">
+          <End Type="MultiLocModel.tableModeles" Role="tableModeles" Multiplicity="1" />
+          <End Type="MultiLocModel.tableVehicules" Role="tableVehicules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableModeles">
+              <PropertyRef Name="ID_Modele" />
+            </Principal>
+            <Dependent Role="tableVehicules">
+              <PropertyRef Name="ID_Modele" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MultiLocModelStoreContainer" CdmEntityContainer="MultiLocEntities11">
+          <EntitySetMapping Name="tableLocations">
+            <EntityTypeMapping TypeName="MultiLocModel.tableLocation">
+              <MappingFragment StoreEntitySet="tableLocations">
+                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+                <ScalarProperty Name="DatePremierPaiement" ColumnName="DatePremierPaiement" />
+                <ScalarProperty Name="MontantMensuel" ColumnName="MontantMensuel" />
+                <ScalarProperty Name="NombrePaiementsMensuel" ColumnName="NombrePaiementsMensuel" />
+                <ScalarProperty Name="NIV" ColumnName="NIV" />
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="ID_Terme" ColumnName="ID_Terme" />
+                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tablePaiements">
+            <EntityTypeMapping TypeName="MultiLocModel.tablePaiement">
+              <MappingFragment StoreEntitySet="tablePaiements">
+                <ScalarProperty Name="DatePaiement" ColumnName="DatePaiement" />
+                <ScalarProperty Name="Montant" ColumnName="Montant" />
+                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+                <ScalarProperty Name="ID_Paiement" ColumnName="ID_Paiement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MultiLocModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tableAudits">
+            <EntityTypeMapping TypeName="MultiLocModel.tableAudits">
+              <MappingFragment StoreEntitySet="tableAudits">
+                <ScalarProperty Name="ID_Audit" ColumnName="ID_Audit" />
+                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+                <ScalarProperty Name="ChampsChanger" ColumnName="ChampsChanger" />
+                <ScalarProperty Name="NouvelleValeur" ColumnName="NouvelleValeur" />
+                <ScalarProperty Name="AncienneValeur" ColumnName="AncienneValeur" />
+                <ScalarProperty Name="Changer" ColumnName="Changer" />
+                <ScalarProperty Name="DateChangement" ColumnName="DateChangement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tableCategories">
+            <EntityTypeMapping TypeName="MultiLocModel.tableCategories">
+              <MappingFragment StoreEntitySet="tableCategories">
+                <ScalarProperty Name="Categorie" ColumnName="Categorie" />
+                <ScalarProperty Name="ID_Categorie" ColumnName="ID_Categorie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tableClients">
+            <EntityTypeMapping TypeName="MultiLocModel.tableClients">
+              <MappingFragment StoreEntitySet="tableClients">
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="NumeroTelephone" ColumnName="NumeroTelephone" />
+                <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tableCouleurs">
+            <EntityTypeMapping TypeName="MultiLocModel.tableCouleurs">
+              <MappingFragment StoreEntitySet="tableCouleurs">
+                <ScalarProperty Name="Couleur" ColumnName="Couleur" />
+                <ScalarProperty Name="ID_Couleur" ColumnName="ID_Couleur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tableModeles">
+            <EntityTypeMapping TypeName="MultiLocModel.tableModeles">
+              <MappingFragment StoreEntitySet="tableModeles">
+                <ScalarProperty Name="ModeleDescription" ColumnName="ModeleDescription" />
+                <ScalarProperty Name="ID_Modele" ColumnName="ID_Modele" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tableTermes_Location">
+            <EntityTypeMapping TypeName="MultiLocModel.tableTermes_Location">
+              <MappingFragment StoreEntitySet="tableTermes_Location">
+                <ScalarProperty Name="ID_Terme" ColumnName="ID_Terme" />
+                <ScalarProperty Name="Surprime_KM" ColumnName="Surprime_KM" />
+                <ScalarProperty Name="KM_Maximum" ColumnName="KM_Maximum" />
+                <ScalarProperty Name="NombreAnnees" ColumnName="NombreAnnees" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tableVehicules">
+            <EntityTypeMapping TypeName="MultiLocModel.tableVehicules">
+              <MappingFragment StoreEntitySet="tableVehicules">
+                <ScalarProperty Name="AntiDemarreur" ColumnName="AntiDemarreur" />
+                <ScalarProperty Name="AirClim" ColumnName="AirClim" />
+                <ScalarProperty Name="Automatique" ColumnName="Automatique" />
+                <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+                <ScalarProperty Name="Louer" ColumnName="Louer" />
+                <ScalarProperty Name="Odometre" ColumnName="Odometre" />
+                <ScalarProperty Name="Annee" ColumnName="Annee" />
+                <ScalarProperty Name="ID_Couleur" ColumnName="ID_Couleur" />
+                <ScalarProperty Name="ID_Categorie" ColumnName="ID_Categorie" />
+                <ScalarProperty Name="ID_Modele" ColumnName="ID_Modele" />
+                <ScalarProperty Name="NIV" ColumnName="NIV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Etape3">
+            <EntityTypeMapping TypeName="MultiLocModel.Etape3">
+              <MappingFragment StoreEntitySet="Etape3">
+                <ScalarProperty Name="Montant" ColumnName="Montant" />
+                <ScalarProperty Name="DatePaiement" ColumnName="DatePaiement" />
+                <ScalarProperty Name="Annee" ColumnName="Annee" />
+                <ScalarProperty Name="ID_Couleur" ColumnName="ID_Couleur" />
+                <ScalarProperty Name="NIV" ColumnName="NIV" />
+                <ScalarProperty Name="NumeroTelephone" ColumnName="NumeroTelephone" />
+                <ScalarProperty Name="Nom_Complet" ColumnName="Nom Complet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MultiLocEntities">
+        <EntityTypeShape EntityType="MultiLocModel.tableLocation" Width="1.5" PointX="0.75" PointY="1" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MultiLocModel.tablePaiement" Width="1.5" PointX="3.25" PointY="0.875" Height="1.9802864583333335" IsExpanded="true" />
+        <AssociationConnector Association="MultiLocModel.FK_Paiements" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.9276432291666668" />
+          <ConnectorPoint PointX="3.25" PointY="1.9276432291666668" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="MultiLocModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="0.75" Height="1.9802864583333326" />
+        <EntityTypeShape EntityType="MultiLocModel.tableAudits" Width="1.5" PointX="3" PointY="4.5" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="MultiLocModel.tableCategories" Width="1.5" PointX="0.75" PointY="19.875" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="MultiLocModel.tableClients" Width="1.5" PointX="0.75" PointY="7.625" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="MultiLocModel.tableCouleurs" Width="1.5" PointX="0.75" PointY="22.25" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="MultiLocModel.tableModeles" Width="1.5" PointX="0.75" PointY="24.5" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="MultiLocModel.tableTermes_Location" Width="1.5" PointX="0.75" PointY="11.125" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="MultiLocModel.tableVehicules" Width="1.5" PointX="0.75" PointY="15" Height="3.9033007812500031" />
+        <EntityTypeShape EntityType="MultiLocModel.Etape3" Width="1.5" PointX="5.375" PointY="3.75" Height="2.3648893229166674" />
+        <AssociationConnector Association="MultiLocModel.FK_Locations2" >
+          <ConnectorPoint PointX="2.25" PointY="3.7088927291666667" />
+          <ConnectorPoint PointX="3.09375" PointY="3.7088927291666667" />
+          <ConnectorPoint PointX="3.09375" PointY="4.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="MultiLocModel.FK_Categories1" >
+          <ConnectorPoint PointX="1.5" PointY="19.875" />
+          <ConnectorPoint PointX="1.5" PointY="18.903300781250003" />
+        </AssociationConnector>
+        <AssociationConnector Association="MultiLocModel.FK_Clients1" >
+          <ConnectorPoint PointX="1.5" PointY="7.625" />
+          <ConnectorPoint PointX="1.5" PointY="4.5186979166666656" />
+        </AssociationConnector>
+        <AssociationConnector Association="MultiLocModel.FK_Couleurs1" >
+          <ConnectorPoint PointX="0.75115284615384614" PointY="22.25" />
+          <ConnectorPoint PointX="0.375" PointY="21.873847153846153" />
+          <ConnectorPoint PointX="0.375" PointY="19.27945362740385" />
+          <ConnectorPoint PointX="0.75115284615384637" PointY="18.903300781250003" />
+        </AssociationConnector>
+        <AssociationConnector Association="MultiLocModel.FK_Termes_Location1" >
+          <ConnectorPoint PointX="0.75115284615384614" PointY="11.125" />
+          <ConnectorPoint PointX="0.375" PointY="10.748847153846153" />
+          <ConnectorPoint PointX="0.375" PointY="4.8936979166666656" />
+          <ConnectorPoint PointX="0.75" PointY="4.5186979166666656" />
+        </AssociationConnector>
+        <AssociationConnector Association="MultiLocModel.FK_Vehicules1" >
+          <ConnectorPoint PointX="2.25" PointY="15.001152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="14.626152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="4.8936979166666656" />
+          <ConnectorPoint PointX="2.25" PointY="4.5186979166666656" />
+        </AssociationConnector>
+        <AssociationConnector Association="MultiLocModel.FK_Modeles1" >
+          <ConnectorPoint PointX="2.25" PointY="24.501152846153843" />
+          <ConnectorPoint PointX="2.625" PointY="24.126152846153843" />
+          <ConnectorPoint PointX="2.625" PointY="19.278300781250003" />
+          <ConnectorPoint PointX="2.2499999999999996" PointY="18.903300781250003" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

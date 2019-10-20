@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MultiLocModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="MultiLocEntities11" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tableLocations" EntityType="MultiLocModel.tableLocation" />
+    <EntitySet Name="tablePaiements" EntityType="MultiLocModel.tablePaiement" />
+    <AssociationSet Name="FK_Paiements" Association="MultiLocModel.FK_Paiements">
+      <End Role="tableLocations" EntitySet="tableLocations" />
+      <End Role="tablePaiements" EntitySet="tablePaiements" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="MultiLocModel.sysdiagrams" />
+    <EntitySet Name="tableAudits" EntityType="MultiLocModel.tableAudits" />
+    <EntitySet Name="tableCategories" EntityType="MultiLocModel.tableCategories" />
+    <EntitySet Name="tableClients" EntityType="MultiLocModel.tableClients" />
+    <EntitySet Name="tableCouleurs" EntityType="MultiLocModel.tableCouleurs" />
+    <EntitySet Name="tableModeles" EntityType="MultiLocModel.tableModeles" />
+    <EntitySet Name="tableTermes_Location" EntityType="MultiLocModel.tableTermes_Location" />
+    <EntitySet Name="tableVehicules" EntityType="MultiLocModel.tableVehicules" />
+    <EntitySet Name="Etape3" EntityType="MultiLocModel.Etape3" />
+    <AssociationSet Name="FK_Locations2" Association="MultiLocModel.FK_Locations2">
+      <End Role="tableLocation" EntitySet="tableLocations" />
+      <End Role="tableAudits" EntitySet="tableAudits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categories1" Association="MultiLocModel.FK_Categories1">
+      <End Role="tableCategories" EntitySet="tableCategories" />
+      <End Role="tableVehicules" EntitySet="tableVehicules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clients1" Association="MultiLocModel.FK_Clients1">
+      <End Role="tableClients" EntitySet="tableClients" />
+      <End Role="tableLocation" EntitySet="tableLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Couleurs1" Association="MultiLocModel.FK_Couleurs1">
+      <End Role="tableCouleurs" EntitySet="tableCouleurs" />
+      <End Role="tableVehicules" EntitySet="tableVehicules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Termes_Location1" Association="MultiLocModel.FK_Termes_Location1">
+      <End Role="tableTermes_Location" EntitySet="tableTermes_Location" />
+      <End Role="tableLocation" EntitySet="tableLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicules1" Association="MultiLocModel.FK_Vehicules1">
+      <End Role="tableVehicules" EntitySet="tableVehicules" />
+      <End Role="tableLocation" EntitySet="tableLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Modeles1" Association="MultiLocModel.FK_Modeles1">
+      <End Role="tableModeles" EntitySet="tableModeles" />
+      <End Role="tableVehicules" EntitySet="tableVehicules" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tableLocation">
+    <Key>
+      <PropertyRef Name="ID_Location" />
+    </Key>
+    <Property Name="DateDebut" Type="DateTime" Nullable="false" />
+    <Property Name="DatePremierPaiement" Type="DateTime" Nullable="false" />
+    <Property Name="MontantMensuel" Type="Int32" Nullable="false" />
+    <Property Name="NombrePaiementsMensuel" Type="Int32" Nullable="false" />
+    <Property Name="NIV" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="ID_Client" Type="Int32" Nullable="false" />
+    <Property Name="ID_Terme" Type="Int32" Nullable="false" />
+    <Property Name="ID_Location" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tablePaiements" Relationship="MultiLocModel.FK_Paiements" FromRole="tableLocations" ToRole="tablePaiements" />
+    <NavigationProperty Name="tableAudits" Relationship="MultiLocModel.FK_Locations2" FromRole="tableLocation" ToRole="tableAudits" />
+    <NavigationProperty Name="tableClients" Relationship="MultiLocModel.FK_Clients1" FromRole="tableLocation" ToRole="tableClients" />
+    <NavigationProperty Name="tableTermes_Location" Relationship="MultiLocModel.FK_Termes_Location1" FromRole="tableLocation" ToRole="tableTermes_Location" />
+    <NavigationProperty Name="tableVehicules" Relationship="MultiLocModel.FK_Vehicules1" FromRole="tableLocation" ToRole="tableVehicules" />
+  </EntityType>
+  <EntityType Name="tablePaiement">
+    <Key>
+      <PropertyRef Name="ID_Paiement" />
+    </Key>
+    <Property Name="DatePaiement" Type="DateTime" Nullable="false" />
+    <Property Name="Montant" Type="Int32" Nullable="false" />
+    <Property Name="ID_Location" Type="Int32" Nullable="false" />
+    <Property Name="ID_Paiement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tableLocation" Relationship="MultiLocModel.FK_Paiements" FromRole="tablePaiements" ToRole="tableLocations" />
+  </EntityType>
+  <Association Name="FK_Paiements">
+    <End Role="tableLocations" Type="MultiLocModel.tableLocation" Multiplicity="1" />
+    <End Role="tablePaiements" Type="MultiLocModel.tablePaiement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableLocations">
+        <PropertyRef Name="ID_Location" />
+      </Principal>
+      <Dependent Role="tablePaiements">
+        <PropertyRef Name="ID_Location" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="version" />
+    <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tableAudits">
+    <Key>
+      <PropertyRef Name="ID_Audit" />
+    </Key>
+    <Property Type="DateTime" Name="DateChangement" Nullable="false" />
+    <Property Type="Boolean" Name="Changer" Nullable="false" />
+    <Property Type="String" Name="AncienneValeur" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NouvelleValeur" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ChampsChanger" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ID_Location" Nullable="false" />
+    <Property Type="Int32" Name="ID_Audit" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tableLocations" Relationship="MultiLocModel.FK_Locations2" FromRole="tableAudits" ToRole="tableLocation" />
+  </EntityType>
+  <EntityType Name="tableCategories">
+    <Key>
+      <PropertyRef Name="ID_Categorie" />
+    </Key>
+    <Property Type="Int32" Name="ID_Categorie" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Categorie" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tableVehicules" Relationship="MultiLocModel.FK_Categories1" FromRole="tableCategories" ToRole="tableVehicules" />
+  </EntityType>
+  <EntityType Name="tableClients">
+    <Key>
+      <PropertyRef Name="ID_Client" />
+    </Key>
+    <Property Type="String" Name="Prenom" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Nom" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Adresse" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Ville" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Province" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CodePostal" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NumeroTelephone" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="ID_Client" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tableLocations" Relationship="MultiLocModel.FK_Clients1" FromRole="tableClients" ToRole="tableLocation" />
+  </EntityType>
+  <EntityType Name="tableCouleurs">
+    <Key>
+      <PropertyRef Name="ID_Couleur" />
+    </Key>
+    <Property Type="Int32" Name="ID_Couleur" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Couleur" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tableVehicules" Relationship="MultiLocModel.FK_Couleurs1" FromRole="tableCouleurs" ToRole="tableVehicules" />
+  </EntityType>
+  <EntityType Name="tableModeles">
+    <Key>
+      <PropertyRef Name="ID_Modele" />
+    </Key>
+    <Property Type="Int32" Name="ID_Modele" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ModeleDescription" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tableVehicules" Relationship="MultiLocModel.FK_Modeles1" FromRole="tableModeles" ToRole="tableVehicules" />
+  </EntityType>
+  <EntityType Name="tableTermes_Location">
+    <Key>
+      <PropertyRef Name="ID_Terme" />
+    </Key>
+    <Property Type="Int16" Name="NombreAnnees" Nullable="false" />
+    <Property Type="Int32" Name="KM_Maximum" Nullable="false" />
+    <Property Type="Double" Name="Surprime_KM" Nullable="false" />
+    <Property Type="Int32" Name="ID_Terme" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tableLocations" Relationship="MultiLocModel.FK_Termes_Location1" FromRole="tableTermes_Location" ToRole="tableLocation" />
+  </EntityType>
+  <EntityType Name="tableVehicules">
+    <Key>
+      <PropertyRef Name="NIV" />
+    </Key>
+    <Property Type="String" Name="NIV" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ID_Modele" Nullable="false" />
+    <Property Type="Int32" Name="ID_Categorie" Nullable="false" />
+    <Property Type="Int32" Name="ID_Couleur" Nullable="false" />
+    <Property Type="String" Name="Annee" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="Odometre" Nullable="false" />
+    <Property Type="Boolean" Name="Louer" />
+    <Property Type="Int32" Name="Valeur" Nullable="false" />
+    <Property Type="Boolean" Name="Automatique" />
+    <Property Type="Boolean" Name="AirClim" />
+    <Property Type="Boolean" Name="AntiDemarreur" />
+    <NavigationProperty Name="tableCategories" Relationship="MultiLocModel.FK_Categories1" FromRole="tableVehicules" ToRole="tableCategories" />
+    <NavigationProperty Name="tableCouleurs" Relationship="MultiLocModel.FK_Couleurs1" FromRole="tableVehicules" ToRole="tableCouleurs" />
+    <NavigationProperty Name="tableLocations" Relationship="MultiLocModel.FK_Vehicules1" FromRole="tableVehicules" ToRole="tableLocation" />
+    <NavigationProperty Name="tableModeles" Relationship="MultiLocModel.FK_Modeles1" FromRole="tableVehicules" ToRole="tableModeles" />
+  </EntityType>
+  <EntityType Name="Etape3">
+    <Key>
+      <PropertyRef Name="Nom_Complet" />
+      <PropertyRef Name="NumeroTelephone" />
+      <PropertyRef Name="NIV" />
+      <PropertyRef Name="ID_Couleur" />
+      <PropertyRef Name="Annee" />
+      <PropertyRef Name="DatePaiement" />
+      <PropertyRef Name="Montant" />
+    </Key>
+    <Property Type="String" Name="Nom_Complet" Nullable="false" MaxLength="62" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NumeroTelephone" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="NIV" Nullable="false" MaxLength="25" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="ID_Couleur" Nullable="false" />
+    <Property Type="String" Name="Annee" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="DatePaiement" Nullable="false" />
+    <Property Type="Int32" Name="Montant" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Locations2">
+    <End Type="MultiLocModel.tableLocation" Role="tableLocation" Multiplicity="1" />
+    <End Type="MultiLocModel.tableAudits" Role="tableAudits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableLocation">
+        <PropertyRef Name="ID_Location" />
+      </Principal>
+      <Dependent Role="tableAudits">
+        <PropertyRef Name="ID_Location" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categories1">
+    <End Type="MultiLocModel.tableCategories" Role="tableCategories" Multiplicity="1" />
+    <End Type="MultiLocModel.tableVehicules" Role="tableVehicules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableCategories">
+        <PropertyRef Name="ID_Categorie" />
+      </Principal>
+      <Dependent Role="tableVehicules">
+        <PropertyRef Name="ID_Categorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clients1">
+    <End Type="MultiLocModel.tableClients" Role="tableClients" Multiplicity="1" />
+    <End Type="MultiLocModel.tableLocation" Role="tableLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableClients">
+        <PropertyRef Name="ID_Client" />
+      </Principal>
+      <Dependent Role="tableLocation">
+        <PropertyRef Name="ID_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Couleurs1">
+    <End Type="MultiLocModel.tableCouleurs" Role="tableCouleurs" Multiplicity="1" />
+    <End Type="MultiLocModel.tableVehicules" Role="tableVehicules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableCouleurs">
+        <PropertyRef Name="ID_Couleur" />
+      </Principal>
+      <Dependent Role="tableVehicules">
+        <PropertyRef Name="ID_Couleur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Termes_Location1">
+    <End Type="MultiLocModel.tableTermes_Location" Role="tableTermes_Location" Multiplicity="1" />
+    <End Type="MultiLocModel.tableLocation" Role="tableLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableTermes_Location">
+        <PropertyRef Name="ID_Terme" />
+      </Principal>
+      <Dependent Role="tableLocation">
+        <PropertyRef Name="ID_Terme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicules1">
+    <End Type="MultiLocModel.tableVehicules" Role="tableVehicules" Multiplicity="1" />
+    <End Type="MultiLocModel.tableLocation" Role="tableLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableVehicules">
+        <PropertyRef Name="NIV" />
+      </Principal>
+      <Dependent Role="tableLocation">
+        <PropertyRef Name="NIV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Modeles1">
+    <End Type="MultiLocModel.tableModeles" Role="tableModeles" Multiplicity="1" />
+    <End Type="MultiLocModel.tableVehicules" Role="tableVehicules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableModeles">
+        <PropertyRef Name="ID_Modele" />
+      </Principal>
+      <Dependent Role="tableVehicules">
+        <PropertyRef Name="ID_Modele" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

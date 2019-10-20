@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MultiLocModelStoreContainer" CdmEntityContainer="MultiLocEntities11">
+    <EntitySetMapping Name="tableLocations">
+      <EntityTypeMapping TypeName="MultiLocModel.tableLocation">
+        <MappingFragment StoreEntitySet="tableLocations">
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="DatePremierPaiement" ColumnName="DatePremierPaiement" />
+          <ScalarProperty Name="MontantMensuel" ColumnName="MontantMensuel" />
+          <ScalarProperty Name="NombrePaiementsMensuel" ColumnName="NombrePaiementsMensuel" />
+          <ScalarProperty Name="NIV" ColumnName="NIV" />
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="ID_Terme" ColumnName="ID_Terme" />
+          <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tablePaiements">
+      <EntityTypeMapping TypeName="MultiLocModel.tablePaiement">
+        <MappingFragment StoreEntitySet="tablePaiements">
+          <ScalarProperty Name="DatePaiement" ColumnName="DatePaiement" />
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+          <ScalarProperty Name="ID_Paiement" ColumnName="ID_Paiement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MultiLocModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableAudits">
+      <EntityTypeMapping TypeName="MultiLocModel.tableAudits">
+        <MappingFragment StoreEntitySet="tableAudits">
+          <ScalarProperty Name="ID_Audit" ColumnName="ID_Audit" />
+          <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+          <ScalarProperty Name="ChampsChanger" ColumnName="ChampsChanger" />
+          <ScalarProperty Name="NouvelleValeur" ColumnName="NouvelleValeur" />
+          <ScalarProperty Name="AncienneValeur" ColumnName="AncienneValeur" />
+          <ScalarProperty Name="Changer" ColumnName="Changer" />
+          <ScalarProperty Name="DateChangement" ColumnName="DateChangement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableCategories">
+      <EntityTypeMapping TypeName="MultiLocModel.tableCategories">
+        <MappingFragment StoreEntitySet="tableCategories">
+          <ScalarProperty Name="Categorie" ColumnName="Categorie" />
+          <ScalarProperty Name="ID_Categorie" ColumnName="ID_Categorie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableClients">
+      <EntityTypeMapping TypeName="MultiLocModel.tableClients">
+        <MappingFragment StoreEntitySet="tableClients">
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="NumeroTelephone" ColumnName="NumeroTelephone" />
+          <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Ville" ColumnName="Ville" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableCouleurs">
+      <EntityTypeMapping TypeName="MultiLocModel.tableCouleurs">
+        <MappingFragment StoreEntitySet="tableCouleurs">
+          <ScalarProperty Name="Couleur" ColumnName="Couleur" />
+          <ScalarProperty Name="ID_Couleur" ColumnName="ID_Couleur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableModeles">
+      <EntityTypeMapping TypeName="MultiLocModel.tableModeles">
+        <MappingFragment StoreEntitySet="tableModeles">
+          <ScalarProperty Name="ModeleDescription" ColumnName="ModeleDescription" />
+          <ScalarProperty Name="ID_Modele" ColumnName="ID_Modele" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableTermes_Location">
+      <EntityTypeMapping TypeName="MultiLocModel.tableTermes_Location">
+        <MappingFragment StoreEntitySet="tableTermes_Location">
+          <ScalarProperty Name="ID_Terme" ColumnName="ID_Terme" />
+          <ScalarProperty Name="Surprime_KM" ColumnName="Surprime_KM" />
+          <ScalarProperty Name="KM_Maximum" ColumnName="KM_Maximum" />
+          <ScalarProperty Name="NombreAnnees" ColumnName="NombreAnnees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableVehicules">
+      <EntityTypeMapping TypeName="MultiLocModel.tableVehicules">
+        <MappingFragment StoreEntitySet="tableVehicules">
+          <ScalarProperty Name="AntiDemarreur" ColumnName="AntiDemarreur" />
+          <ScalarProperty Name="AirClim" ColumnName="AirClim" />
+          <ScalarProperty Name="Automatique" ColumnName="Automatique" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+          <ScalarProperty Name="Louer" ColumnName="Louer" />
+          <ScalarProperty Name="Odometre" ColumnName="Odometre" />
+          <ScalarProperty Name="Annee" ColumnName="Annee" />
+          <ScalarProperty Name="ID_Couleur" ColumnName="ID_Couleur" />
+          <ScalarProperty Name="ID_Categorie" ColumnName="ID_Categorie" />
+          <ScalarProperty Name="ID_Modele" ColumnName="ID_Modele" />
+          <ScalarProperty Name="NIV" ColumnName="NIV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etape3">
+      <EntityTypeMapping TypeName="MultiLocModel.Etape3">
+        <MappingFragment StoreEntitySet="Etape3">
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="DatePaiement" ColumnName="DatePaiement" />
+          <ScalarProperty Name="Annee" ColumnName="Annee" />
+          <ScalarProperty Name="ID_Couleur" ColumnName="ID_Couleur" />
+          <ScalarProperty Name="NIV" ColumnName="NIV" />
+          <ScalarProperty Name="NumeroTelephone" ColumnName="NumeroTelephone" />
+          <ScalarProperty Name="Nom_Complet" ColumnName="Nom Complet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
