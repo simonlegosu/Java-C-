@@ -1,0 +1,37 @@
+﻿<Window x:Class="NLHospital.Administrateur"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Administrateur" Height="300" Width="300" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl Height="255" HorizontalAlignment="Left" Margin="2,2,0,0" Name="tabControl1" VerticalAlignment="Top" Width="276">
+            <TabItem Header="Ajouter médecin" Name="tabItem1">
+                <Grid Height="230">
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="144,27,0,0" Name="nommedTxtB" VerticalAlignment="Top" Width="120" />
+                    <Label Content="Saisir les informations sur le nouveau médecin." Height="28" HorizontalAlignment="Left" Margin="6,-2,0,0" Name="label2" VerticalAlignment="Top" FontSize="12" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="144,56,0,0" Name="prenommedTxtB" VerticalAlignment="Top" Width="120" />
+                    <Label Content="Nom de famille" Height="28" HorizontalAlignment="Left" Margin="6,23,0,0" Name="label3" VerticalAlignment="Top" />
+                    <Label Content="Prénom" Height="28" HorizontalAlignment="Left" Margin="6,52,0,0" Name="label4" VerticalAlignment="Top" />
+                    <Label Content="Département" Height="28" HorizontalAlignment="Left" Margin="6,80,0,0" Name="label5" VerticalAlignment="Top" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="145,85,0,0" Name="departajmedCombox" VerticalAlignment="Top" Width="120" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" DisplayMemberPath="Description"/>
+                    <DatePicker Height="25" HorizontalAlignment="Left" Margin="145,114,0,0" Name="dateembauche" VerticalAlignment="Top" Width="119" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="145,145,0,0" Name="telemedTxtB" VerticalAlignment="Top" Width="120" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="145,173,0,0" Name="adrmedTxtB" VerticalAlignment="Top" Width="120" />
+                    <Button Content="Quitter" Height="23" HorizontalAlignment="Left" Margin="189,202,0,0" Name="quitbutt" VerticalAlignment="Top" Width="75" Click="quitbutt_Click_1" />
+                    <Label Content="Date d'embauche" Height="28" HorizontalAlignment="Left" Margin="6,111,0,0" Name="label6" VerticalAlignment="Top" />
+                    <Label Content="Téléphone" Height="28" HorizontalAlignment="Left" Margin="6,141,0,0" Name="label7" VerticalAlignment="Top" />
+                    <Label Content="Adresse" Height="28" HorizontalAlignment="Left" Margin="6,169,0,0" Name="label8" VerticalAlignment="Top" />
+                    <Button Content="Ajouter" Height="23" HorizontalAlignment="Left" Margin="6,202,0,0" Name="ajoutMedbutt" VerticalAlignment="Top" Width="75" Click="ajoutMedbutt_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Supprimer médecin" Name="tabItem2">
+                <Grid Height="230">
+                    <ListBox Height="141" HorizontalAlignment="Left" Margin="6,55,0,0" Name="meddeleteListBox" VerticalAlignment="Top" Width="259"  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" DisplayMemberPath="Nom"/>
+                    <Button Content="Supprimer" Height="23" HorizontalAlignment="Left" Margin="6,202,0,0" Name="supprimermdButt" VerticalAlignment="Top" Width="75" Click="supprimermdButt_Click" />
+                    <Button Content="Quitter" Height="23" HorizontalAlignment="Left" Margin="190,202,0,0" Name="quitButt" VerticalAlignment="Top" Width="75" Click="quitButt_Click" />
+                    <Label Height="42" HorizontalAlignment="Left" Margin="6,7,0,0" Name="label1" VerticalAlignment="Top" Width="259"></Label>
+                    <AccessText TextWrapping="Wrap" Text="Veuillez sélectionner le médecin que vous voulez supprimer de la base de données." Margin="8,7,3,188" FontSize="14" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

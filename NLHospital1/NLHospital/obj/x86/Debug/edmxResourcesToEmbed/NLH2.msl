@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NLHospitalModelStoreContainer" CdmEntityContainer="NLHospitalEntities3">
+    <EntitySetMapping Name="tblAdmissions">
+      <EntityTypeMapping TypeName="NLHospitalModel.tblAdmission">
+        <MappingFragment StoreEntitySet="tblAdmissions">
+          <ScalarProperty Name="ID_Adm" ColumnName="ID_Adm" />
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+          <ScalarProperty Name="ID_Departement" ColumnName="ID_Departement" />
+          <ScalarProperty Name="ID_Medecin" ColumnName="ID_Medecin" />
+          <ScalarProperty Name="DateAdmin" ColumnName="DateAdmin" />
+          <ScalarProperty Name="DateConge" ColumnName="DateConge" />
+          <ScalarProperty Name="ID_Chambre" ColumnName="ID_Chambre" />
+          <ScalarProperty Name="ID_Lit" ColumnName="ID_Lit" />
+          <ScalarProperty Name="ID_Perk" ColumnName="ID_Perk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblChambres">
+      <EntityTypeMapping TypeName="NLHospitalModel.tblChambre">
+        <MappingFragment StoreEntitySet="tblChambres">
+          <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PrixChambre" ColumnName="PrixChambre" />
+          <ScalarProperty Name="NbdeLit" ColumnName="NbdeLit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDepartements">
+      <EntityTypeMapping TypeName="NLHospitalModel.tblDepartement">
+        <MappingFragment StoreEntitySet="tblDepartements">
+          <ScalarProperty Name="ID_Departement" ColumnName="ID_Departement" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFactures">
+      <EntityTypeMapping TypeName="NLHospitalModel.tblFacture">
+        <MappingFragment StoreEntitySet="tblFactures">
+          <ScalarProperty Name="ID_Facture" ColumnName="ID_Facture" />
+          <ScalarProperty Name="ID_Frais" ColumnName="ID_Frais" />
+          <ScalarProperty Name="ID_Adm" ColumnName="ID_Adm" />
+          <ScalarProperty Name="MontantTotal" ColumnName="MontantTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFraisAdms">
+      <EntityTypeMapping TypeName="NLHospitalModel.tblFraisAdm">
+        <MappingFragment StoreEntitySet="tblFraisAdm">
+          <ScalarProperty Name="ID_Frais" ColumnName="ID_Frais" />
+          <ScalarProperty Name="ID_Adm" ColumnName="ID_Adm" />
+          <ScalarProperty Name="ID_Perk" ColumnName="ID_Perk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLits">
+      <EntityTypeMapping TypeName="NLHospitalModel.tblLit">
+        <MappingFragment StoreEntitySet="tblLits">
+          <ScalarProperty Name="ID_Lit" ColumnName="ID_Lit" />
+          <ScalarProperty Name="ID_Adm" ColumnName="ID_Adm" />
+          <ScalarProperty Name="ID_Departement" ColumnName="ID_Departement" />
+          <ScalarProperty Name="ID_Chambre" ColumnName="ID_Chambre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMedecins">
+      <EntityTypeMapping TypeName="NLHospitalModel.tblMedecin">
+        <MappingFragment StoreEntitySet="tblMedecins">
+          <ScalarProperty Name="ID_Medecin" ColumnName="ID_Medecin" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="ID_Departement" ColumnName="ID_Departement" />
+          <ScalarProperty Name="DateEmbauche" ColumnName="DateEmbauche" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPatients">
+      <EntityTypeMapping TypeName="NLHospitalModel.tblPatient">
+        <MappingFragment StoreEntitySet="tblPatients">
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Assurance" ColumnName="Assurance" />
+          <ScalarProperty Name="Nom_Parent" ColumnName="Nom_Parent" />
+          <ScalarProperty Name="Prenom_Parent" ColumnName="Prenom_Parent" />
+          <ScalarProperty Name="Telephone_Parent" ColumnName="Telephone_Parent" />
+          <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+          <ScalarProperty Name="Vacancy" ColumnName="Vacancy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPerks">
+      <EntityTypeMapping TypeName="NLHospitalModel.tblPerk">
+        <MappingFragment StoreEntitySet="tblPerks">
+          <ScalarProperty Name="ID_Perk" ColumnName="ID_Perk" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PrixPerks" ColumnName="PrixPerks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

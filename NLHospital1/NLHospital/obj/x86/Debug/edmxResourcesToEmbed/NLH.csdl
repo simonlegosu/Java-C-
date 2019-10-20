@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NLHospitalModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="NLHospitalEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAdmissions" EntityType="NLHospitalModel.tblAdmission" />
+    <EntitySet Name="tblChambres" EntityType="NLHospitalModel.tblChambre" />
+    <EntitySet Name="tblDepartements" EntityType="NLHospitalModel.tblDepartement" />
+    <EntitySet Name="tblFactures" EntityType="NLHospitalModel.tblFacture" />
+    <EntitySet Name="tblFraisAdms" EntityType="NLHospitalModel.tblFraisAdm" />
+    <EntitySet Name="tblLits" EntityType="NLHospitalModel.tblLit" />
+    <EntitySet Name="tblMedecins" EntityType="NLHospitalModel.tblMedecin" />
+    <EntitySet Name="tblPatients" EntityType="NLHospitalModel.tblPatient" />
+    <EntitySet Name="tblPerks" EntityType="NLHospitalModel.tblPerk" />
+    <AssociationSet Name="Fk_AdCha" Association="NLHospitalModel.Fk_AdCha">
+      <End Role="tblChambres" EntitySet="tblChambres" />
+      <End Role="tblAdmissions" EntitySet="tblAdmissions" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_AdDep" Association="NLHospitalModel.Fk_AdDep">
+      <End Role="tblDepartements" EntitySet="tblDepartements" />
+      <End Role="tblAdmissions" EntitySet="tblAdmissions" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_AdLit" Association="NLHospitalModel.Fk_AdLit">
+      <End Role="tblLits" EntitySet="tblLits" />
+      <End Role="tblAdmissions" EntitySet="tblAdmissions" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_AdMed" Association="NLHospitalModel.Fk_AdMed">
+      <End Role="tblMedecins" EntitySet="tblMedecins" />
+      <End Role="tblAdmissions" EntitySet="tblAdmissions" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_AdPat" Association="NLHospitalModel.Fk_AdPat">
+      <End Role="tblPatients" EntitySet="tblPatients" />
+      <End Role="tblAdmissions" EntitySet="tblAdmissions" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_AdPrk" Association="NLHospitalModel.Fk_AdPrk">
+      <End Role="tblPerks" EntitySet="tblPerks" />
+      <End Role="tblAdmissions" EntitySet="tblAdmissions" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_FacAdm" Association="NLHospitalModel.Fk_FacAdm">
+      <End Role="tblAdmissions" EntitySet="tblAdmissions" />
+      <End Role="tblFactures" EntitySet="tblFactures" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_FraisAdmAdm" Association="NLHospitalModel.Fk_FraisAdmAdm">
+      <End Role="tblAdmissions" EntitySet="tblAdmissions" />
+      <End Role="tblFraisAdm" EntitySet="tblFraisAdms" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_LitAdm" Association="NLHospitalModel.Fk_LitAdm">
+      <End Role="tblAdmissions" EntitySet="tblAdmissions" />
+      <End Role="tblLits" EntitySet="tblLits" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_LitCha" Association="NLHospitalModel.Fk_LitCha">
+      <End Role="tblChambres" EntitySet="tblChambres" />
+      <End Role="tblLits" EntitySet="tblLits" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_LitDep" Association="NLHospitalModel.Fk_LitDep">
+      <End Role="tblDepartements" EntitySet="tblDepartements" />
+      <End Role="tblLits" EntitySet="tblLits" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_MedDep" Association="NLHospitalModel.Fk_MedDep">
+      <End Role="tblDepartements" EntitySet="tblDepartements" />
+      <End Role="tblMedecins" EntitySet="tblMedecins" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_FraPrk" Association="NLHospitalModel.Fk_FraPrk">
+      <End Role="tblPerks" EntitySet="tblPerks" />
+      <End Role="tblFraisAdm" EntitySet="tblFraisAdms" />
+    </AssociationSet>
+    <FunctionImport Name="FindPatient" EntitySet="tblPatients" ReturnType="Collection(NLHospitalModel.tblPatient)">
+      <Parameter Name="findPat" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="tblAdmission">
+    <Key>
+      <PropertyRef Name="ID_Adm" />
+    </Key>
+    <Property Name="ID_Adm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Patient" Type="Int32" Nullable="false" />
+    <Property Name="ID_Departement" Type="Int32" Nullable="false" />
+    <Property Name="ID_Medecin" Type="Int32" Nullable="false" />
+    <Property Name="DateAdmin" Type="DateTime" Nullable="false" />
+    <Property Name="DateConge" Type="DateTime" />
+    <Property Name="ID_Chambre" Type="Int32" Nullable="false" />
+    <Property Name="ID_Lit" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="ID_Perk" Type="Int32" />
+    <NavigationProperty Name="tblChambre" Relationship="NLHospitalModel.Fk_AdCha" FromRole="tblAdmissions" ToRole="tblChambres" />
+    <NavigationProperty Name="tblDepartement" Relationship="NLHospitalModel.Fk_AdDep" FromRole="tblAdmissions" ToRole="tblDepartements" />
+    <NavigationProperty Name="tblLit" Relationship="NLHospitalModel.Fk_AdLit" FromRole="tblAdmissions" ToRole="tblLits" />
+    <NavigationProperty Name="tblMedecin" Relationship="NLHospitalModel.Fk_AdMed" FromRole="tblAdmissions" ToRole="tblMedecins" />
+    <NavigationProperty Name="tblPatient" Relationship="NLHospitalModel.Fk_AdPat" FromRole="tblAdmissions" ToRole="tblPatients" />
+    <NavigationProperty Name="tblPerk" Relationship="NLHospitalModel.Fk_AdPrk" FromRole="tblAdmissions" ToRole="tblPerks" />
+    <NavigationProperty Name="tblFactures" Relationship="NLHospitalModel.Fk_FacAdm" FromRole="tblAdmissions" ToRole="tblFactures" />
+    <NavigationProperty Name="tblFraisAdms" Relationship="NLHospitalModel.Fk_FraisAdmAdm" FromRole="tblAdmissions" ToRole="tblFraisAdm" />
+    <NavigationProperty Name="tblLits" Relationship="NLHospitalModel.Fk_LitAdm" FromRole="tblAdmissions" ToRole="tblLits" />
+  </EntityType>
+  <EntityType Name="tblChambre">
+    <Key>
+      <PropertyRef Name="ID_Type" />
+    </Key>
+    <Property Name="ID_Type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="PrixChambre" Type="Double" Nullable="false" />
+    <Property Name="NbdeLit" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblAdmissions" Relationship="NLHospitalModel.Fk_AdCha" FromRole="tblChambres" ToRole="tblAdmissions" />
+    <NavigationProperty Name="tblLits" Relationship="NLHospitalModel.Fk_LitCha" FromRole="tblChambres" ToRole="tblLits" />
+  </EntityType>
+  <EntityType Name="tblDepartement">
+    <Key>
+      <PropertyRef Name="ID_Departement" />
+    </Key>
+    <Property Name="ID_Departement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="tblAdmissions" Relationship="NLHospitalModel.Fk_AdDep" FromRole="tblDepartements" ToRole="tblAdmissions" />
+    <NavigationProperty Name="tblLits" Relationship="NLHospitalModel.Fk_LitDep" FromRole="tblDepartements" ToRole="tblLits" />
+    <NavigationProperty Name="tblMedecins" Relationship="NLHospitalModel.Fk_MedDep" FromRole="tblDepartements" ToRole="tblMedecins" />
+  </EntityType>
+  <EntityType Name="tblFacture">
+    <Key>
+      <PropertyRef Name="ID_Facture" />
+    </Key>
+    <Property Name="ID_Facture" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Frais" Type="Int32" Nullable="false" />
+    <Property Name="ID_Adm" Type="Int32" Nullable="false" />
+    <Property Name="MontantTotal" Type="Double" Nullable="false" />
+    <NavigationProperty Name="tblAdmission" Relationship="NLHospitalModel.Fk_FacAdm" FromRole="tblFactures" ToRole="tblAdmissions" />
+  </EntityType>
+  <EntityType Name="tblFraisAdm">
+    <Key>
+      <PropertyRef Name="ID_Frais" />
+    </Key>
+    <Property Name="ID_Frais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Adm" Type="Int32" Nullable="false" />
+    <Property Name="ID_Perk" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblAdmission" Relationship="NLHospitalModel.Fk_FraisAdmAdm" FromRole="tblFraisAdm" ToRole="tblAdmissions" />
+    <NavigationProperty Name="tblPerk" Relationship="NLHospitalModel.Fk_FraPrk" FromRole="tblFraisAdm" ToRole="tblPerks" />
+  </EntityType>
+  <EntityType Name="tblLit">
+    <Key>
+      <PropertyRef Name="ID_Lit" />
+    </Key>
+    <Property Name="ID_Lit" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="ID_Adm" Type="Int32" />
+    <Property Name="ID_Departement" Type="Int32" Nullable="false" />
+    <Property Name="ID_Chambre" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblAdmissions" Relationship="NLHospitalModel.Fk_AdLit" FromRole="tblLits" ToRole="tblAdmissions" />
+    <NavigationProperty Name="tblAdmission" Relationship="NLHospitalModel.Fk_LitAdm" FromRole="tblLits" ToRole="tblAdmissions" />
+    <NavigationProperty Name="tblChambre" Relationship="NLHospitalModel.Fk_LitCha" FromRole="tblLits" ToRole="tblChambres" />
+    <NavigationProperty Name="tblDepartement" Relationship="NLHospitalModel.Fk_LitDep" FromRole="tblLits" ToRole="tblDepartements" />
+  </EntityType>
+  <EntityType Name="tblMedecin">
+    <Key>
+      <PropertyRef Name="ID_Medecin" />
+    </Key>
+    <Property Name="ID_Medecin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="Prenom" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="Adresse" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="ID_Departement" Type="Int32" Nullable="false" />
+    <Property Name="DateEmbauche" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="tblAdmissions" Relationship="NLHospitalModel.Fk_AdMed" FromRole="tblMedecins" ToRole="tblAdmissions" />
+    <NavigationProperty Name="tblDepartement" Relationship="NLHospitalModel.Fk_MedDep" FromRole="tblMedecins" ToRole="tblDepartements" />
+  </EntityType>
+  <EntityType Name="tblPatient">
+    <Key>
+      <PropertyRef Name="ID_Patient" />
+    </Key>
+    <Property Name="ID_Patient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="Prenom" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="Adresse" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Assurance" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Nom_Parent" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="Prenom_Parent" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="Telephone_Parent" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="DateNaissance" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="tblAdmissions" Relationship="NLHospitalModel.Fk_AdPat" FromRole="tblPatients" ToRole="tblAdmissions" />
+  </EntityType>
+  <EntityType Name="tblPerk">
+    <Key>
+      <PropertyRef Name="ID_Perk" />
+    </Key>
+    <Property Name="ID_Perk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="PrixPerks" Type="Double" Nullable="false" />
+    <NavigationProperty Name="tblAdmissions" Relationship="NLHospitalModel.Fk_AdPrk" FromRole="tblPerks" ToRole="tblAdmissions" />
+    <NavigationProperty Name="tblFraisAdms" Relationship="NLHospitalModel.Fk_FraPrk" FromRole="tblPerks" ToRole="tblFraisAdm" />
+  </EntityType>
+  <Association Name="Fk_AdCha">
+    <End Role="tblChambres" Type="NLHospitalModel.tblChambre" Multiplicity="1" />
+    <End Role="tblAdmissions" Type="NLHospitalModel.tblAdmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblChambres">
+        <PropertyRef Name="ID_Type" />
+      </Principal>
+      <Dependent Role="tblAdmissions">
+        <PropertyRef Name="ID_Chambre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_AdDep">
+    <End Role="tblDepartements" Type="NLHospitalModel.tblDepartement" Multiplicity="1" />
+    <End Role="tblAdmissions" Type="NLHospitalModel.tblAdmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDepartements">
+        <PropertyRef Name="ID_Departement" />
+      </Principal>
+      <Dependent Role="tblAdmissions">
+        <PropertyRef Name="ID_Departement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_AdLit">
+    <End Role="tblLits" Type="NLHospitalModel.tblLit" Multiplicity="1" />
+    <End Role="tblAdmissions" Type="NLHospitalModel.tblAdmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLits">
+        <PropertyRef Name="ID_Lit" />
+      </Principal>
+      <Dependent Role="tblAdmissions">
+        <PropertyRef Name="ID_Lit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_AdMed">
+    <End Role="tblMedecins" Type="NLHospitalModel.tblMedecin" Multiplicity="1" />
+    <End Role="tblAdmissions" Type="NLHospitalModel.tblAdmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMedecins">
+        <PropertyRef Name="ID_Medecin" />
+      </Principal>
+      <Dependent Role="tblAdmissions">
+        <PropertyRef Name="ID_Medecin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_AdPat">
+    <End Role="tblPatients" Type="NLHospitalModel.tblPatient" Multiplicity="1" />
+    <End Role="tblAdmissions" Type="NLHospitalModel.tblAdmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPatients">
+        <PropertyRef Name="ID_Patient" />
+      </Principal>
+      <Dependent Role="tblAdmissions">
+        <PropertyRef Name="ID_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_AdPrk">
+    <End Role="tblPerks" Type="NLHospitalModel.tblPerk" Multiplicity="0..1" />
+    <End Role="tblAdmissions" Type="NLHospitalModel.tblAdmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPerks">
+        <PropertyRef Name="ID_Perk" />
+      </Principal>
+      <Dependent Role="tblAdmissions">
+        <PropertyRef Name="ID_Perk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_FacAdm">
+    <End Role="tblAdmissions" Type="NLHospitalModel.tblAdmission" Multiplicity="1" />
+    <End Role="tblFactures" Type="NLHospitalModel.tblFacture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdmissions">
+        <PropertyRef Name="ID_Adm" />
+      </Principal>
+      <Dependent Role="tblFactures">
+        <PropertyRef Name="ID_Adm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_FraisAdmAdm">
+    <End Role="tblAdmissions" Type="NLHospitalModel.tblAdmission" Multiplicity="1" />
+    <End Role="tblFraisAdm" Type="NLHospitalModel.tblFraisAdm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdmissions">
+        <PropertyRef Name="ID_Adm" />
+      </Principal>
+      <Dependent Role="tblFraisAdm">
+        <PropertyRef Name="ID_Adm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_LitAdm">
+    <End Role="tblAdmissions" Type="NLHospitalModel.tblAdmission" Multiplicity="0..1" />
+    <End Role="tblLits" Type="NLHospitalModel.tblLit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdmissions">
+        <PropertyRef Name="ID_Adm" />
+      </Principal>
+      <Dependent Role="tblLits">
+        <PropertyRef Name="ID_Adm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_LitCha">
+    <End Role="tblChambres" Type="NLHospitalModel.tblChambre" Multiplicity="1" />
+    <End Role="tblLits" Type="NLHospitalModel.tblLit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblChambres">
+        <PropertyRef Name="ID_Type" />
+      </Principal>
+      <Dependent Role="tblLits">
+        <PropertyRef Name="ID_Chambre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_LitDep">
+    <End Role="tblDepartements" Type="NLHospitalModel.tblDepartement" Multiplicity="1" />
+    <End Role="tblLits" Type="NLHospitalModel.tblLit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDepartements">
+        <PropertyRef Name="ID_Departement" />
+      </Principal>
+      <Dependent Role="tblLits">
+        <PropertyRef Name="ID_Departement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_MedDep">
+    <End Role="tblDepartements" Type="NLHospitalModel.tblDepartement" Multiplicity="1" />
+    <End Role="tblMedecins" Type="NLHospitalModel.tblMedecin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDepartements">
+        <PropertyRef Name="ID_Departement" />
+      </Principal>
+      <Dependent Role="tblMedecins">
+        <PropertyRef Name="ID_Departement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_FraPrk">
+    <End Role="tblPerks" Type="NLHospitalModel.tblPerk" Multiplicity="1" />
+    <End Role="tblFraisAdm" Type="NLHospitalModel.tblFraisAdm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPerks">
+        <PropertyRef Name="ID_Perk" />
+      </Principal>
+      <Dependent Role="tblFraisAdm">
+        <PropertyRef Name="ID_Perk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

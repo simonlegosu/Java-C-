@@ -1,0 +1,18 @@
+﻿<Window x:Class="NLHospital.Medecin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Médecin" Height="204" Width="198" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="12,81,0,0" Name="patconCombox" VerticalAlignment="Top" Width="151" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" DisplayMemberPath="ID_Patient">
+
+        </ComboBox>
+        <Button Content="Quitter" Height="23" HorizontalAlignment="Right" Margin="0,136,8,0" Name="quitButt" VerticalAlignment="Top" Width="75" Click="quitButt_Click" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="12,110,0,0" Name="dateCongeDP" VerticalAlignment="Top" Width="151" />
+        <Button Content="OK" Height="23" HorizontalAlignment="Left" Margin="12,136,0,0" Name="congeButt" VerticalAlignment="Top" Width="75" Click="congeButt_Click" />
+        <Label Height="75" HorizontalAlignment="Left" Margin="12,5,0,0" Name="label1" VerticalAlignment="Top" Width="152">
+            <Label.Content>
+                <AccessText TextWrapping="Wrap" Text="Choisissez le ID du patient ainsi que la date de son congé." FontSize="14" Height="67" Width="141" />
+            </Label.Content>
+        </Label>
+    </Grid>
+</Window>
